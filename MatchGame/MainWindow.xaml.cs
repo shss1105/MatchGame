@@ -60,7 +60,7 @@ namespace MatchGame
             
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                if(textBlock.Name != "timeTextBlock")
+                if(textBlock.Name != "TimeTextBlock")
                 {
                     textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(animalEmoji.Count);   // 0 이상 .Count 미만의 정수 반환
