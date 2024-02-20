@@ -16,6 +16,7 @@ namespace MatchGame
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -49,6 +50,30 @@ namespace MatchGame
                     animalEmoji.RemoveAt(index);  // 할당 된 인덱스는 리스트에서 제거
                 }
             }
+        }
+
+        TextBlock lastTextBlockClicked;
+        bool findingMatch = false;
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            if(findingMatch == false)
+            {
+                textBlock.Visibility = Visibility.Hidden;
+                lastTextBlockClicked = textBlock;
+                findingMatch = true;
+            }
+            else if(textBlock.Text == lastTextBlockClicked.Text)
+            {
+                textBlock.Visibility = Visibility.Hidden;
+                findingMatch = false;
+            }
+            else
+            {
+                lastTextBlockClicked.Visibility = Visibility.Visible;
+                findingMatch = false;
+            }
+
         }
     }
 }
