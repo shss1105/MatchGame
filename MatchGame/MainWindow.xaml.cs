@@ -69,6 +69,9 @@ namespace MatchGame
                     animalEmoji.RemoveAt(index);  // 할당 된 인덱스는 리스트에서 제거
                 }
             }
+            timer.Start();
+            tenthsOfSecondsElapsed = 0;
+            matchesFound = 0;
         }
 
         TextBlock lastTextBlockClicked;
@@ -84,6 +87,7 @@ namespace MatchGame
             }
             else if(textBlock.Text == lastTextBlockClicked.Text)
             {
+                matchesFound++;
                 textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
             }
